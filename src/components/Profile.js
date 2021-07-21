@@ -14,6 +14,8 @@ export default function Profile() {
     axios
       .get(url)
       .then((response) => {
+        console.log(response);
+        console.log(params);
         setUser(response.data);
       })
       .catch((error) => {
