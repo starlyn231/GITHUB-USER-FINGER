@@ -4,7 +4,7 @@ import axios from "axios";
 
 const API = "https://api.github.com/";
 
-export default function Profile(username) {
+export default function Profile() {
   const params = useParams();
   const [user, setUser] = useState("");
   const [repos, setRepos] = useState([]);
@@ -28,7 +28,7 @@ export default function Profile(username) {
     axios
       .get(url)
       .then((response) => {
-        setRepos(response);
+        setRepos(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -69,8 +69,8 @@ export default function Profile(username) {
           <div className="card-body d-flex flex-row bg-light">
             <div>
               <img
-                className="mr-4"
-                width="300"
+                className="m-5"
+                width="250"
                 alt="User"
                 src={user.avatar_url}
               />
